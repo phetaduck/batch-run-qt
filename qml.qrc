@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>qtquickcontrols2.conf</file>
+        <file>FolderContentList.qml</file>
+        <file>Icon.js</file>
+        <file>MdiFont.ttf</file>
+        <file>IconLabel.qml</file>
+        <file>FileFilter.qml</file>
+    </qresource>
+</RCC>

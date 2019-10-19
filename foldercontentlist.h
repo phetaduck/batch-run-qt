@@ -1,0 +1,54 @@
+#ifndef FOLDERCONTENTLIST_H
+#define FOLDERCONTENTLIST_H
+
+#include <QObject>
+#include <QVector>
+
+#include "settings.h"
+
+struct FolderContentItem {
+		bool selected;
+		QString name;
+		bool inProgress;
+		bool isFile;
+		bool operator==(const FolderContentItem& rhs) const {
+			return selected == rhs.selected &&
+					name == rhs.name &&
+					isFile == rhs.isFile;
+		}
+};
+
+class FolderContentList : public QObject
+{
+    Q_OBJECT
+public:
+    explicit FolderContentList(QObject *parent = nullptr);
+
+    QVector<FolderContentItem> items() const;
+
+    bool setItemAt(int index, const FolderContentItem& item);
+
+		void resetList();
+
+signals:
+    void preItemAppended();
+    void postItemAppended();
+
+    void preItemRemoved(int index);
+    void postItemRemoved();
+
+		void listReset();
+
+public slots:
+    void appendItem();
+    void removeCompletedItems();
+		void setWorkingDir(const QString& string);
+		void filterChanged(QStringList filter);
+		void filteringEnabled(bool enabled);
+private:
+		QVector<FolderContentItem> mItems;
+		bool filterEnabled_ = true;
+		QStringList filter_ = Settings::defaultFileFilter();
+};
+
+#endif // FOLDERCONTENTLIST_H
