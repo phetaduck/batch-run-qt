@@ -26,7 +26,7 @@ namespace Settings
 				const QStringList& filter);
 		QStringList workingDirSubDirs();
 
-		SessionSettings& changeWorkingDir(const QString& dirName);
+		SessionSettings& changeWorkingDir(QString dirName);
 		const QStringList& defaultFileFilter();
 
 };

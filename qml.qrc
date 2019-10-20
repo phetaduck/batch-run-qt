@@ -7,5 +7,7 @@
         <file>MdiFont.ttf</file>
         <file>IconLabel.qml</file>
         <file>FileFilter.qml</file>
+        <file>FolderContentListItem.qml</file>
+        <file>TaskUI.qml</file>
     </qresource>
 </RCC>

@@ -39,6 +39,7 @@ SessionSettings& Settings::sessionSettings()
 		QString tmpQt = QString::fromStdString(tmp);
 		Fallout4Hardcode f4hardcode {tmpQt};
 		sessionSettings_.workingDir = f4hardcode.dataDir();
+
 #else
 		sessionSettings_.workingDir = settingsJSON[workingDirKey];
 #endif
@@ -76,13 +77,18 @@ QStringList Settings::workingDirFilteredFiles(
 
 #endif
 
-SessionSettings& Settings::changeWorkingDir(const QString& dirName)
+SessionSettings& Settings::changeWorkingDir(QString directory)
 {
+	QString dirName = std::move(directory);
 	SessionSettings& sSettings = sessionSettings();
-	auto currentDir = sSettings.workingDir;
-	currentDir += "/" + dirName;
-	QDir dir(currentDir);
-	sSettings.workingDir = dir.absolutePath();
+	if (QDir(dirName).isAbsolute()) {
+		sSettings.workingDir = dirName;
+	} else {
+		auto currentDir = sSettings.workingDir;
+		currentDir += "/" + dirName;
+		QDir dir(currentDir);
+		sSettings.workingDir = dir.absolutePath();
+	}
 	return sessionSettings() = sSettings;
 }
 

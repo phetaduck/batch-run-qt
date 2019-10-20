@@ -18,9 +18,14 @@ public:
     const QString& installDir() const {
         return installDir_;
     }
-    QString dataDir() {
+
+		QString dataDir() {
         return installDir() + "Data";
     }
+
+		QString archive2() {
+			return installDir() + "/Tools/Archive2/Archive2.exe";
+		}
 		static QStringList workingDirFiles(const QString& path);
 		static QStringList workingDirFilteredFiles(
 				const QString& path,

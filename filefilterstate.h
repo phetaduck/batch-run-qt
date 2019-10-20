@@ -16,7 +16,7 @@ class FileFilterState : public QObject
 public:
 	explicit FileFilterState(QObject *parent = nullptr);
 	bool fileFilterEnabled = true;
-	QStringList fileFilter;
+	QStringList fileFilter = Settings::defaultFileFilter();
 
 signals:
 

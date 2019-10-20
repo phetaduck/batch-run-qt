@@ -34,7 +34,12 @@ QVariant FolderContentModel::data(const QModelIndex &index, int role) const
 		case IsFileRole:
 			return QVariant(item.isFile);
     }
-    return QVariant();
+		return QVariant();
+}
+
+QVariant FolderContentModel::headerData(int, Qt::Orientation, int) const
+{
+	return QVariant(Settings::sessionSettings().workingDir);
 }
 
 bool FolderContentModel::setData(const QModelIndex &index, const QVariant &value, int role)

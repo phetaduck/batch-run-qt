@@ -67,8 +67,10 @@ RowLayout {
         Shortcut {
             sequence: StandardKey.Cancel
             onActivated: {
-                reverseState()
-                fileFilterState.removeLast()
+                if (focus) {
+                    reverseState()
+                    fileFilterState.removeLast()
+                }
             }
         }
 

@@ -1658,5 +1658,6 @@ var Icon = {
     "yeast": "\uf5C1",
     "yelp": "\uf5C2",
     "youtubePlay": "\uf5C3",
-    "zipBox": "\uf5C4"
+    "zipBox": "\uf5C4",
+    "folderOpen": "\uf76F"
 }

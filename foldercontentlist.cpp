@@ -68,11 +68,17 @@ void FolderContentList::removeCompletedItems()
 	}
 }
 
-void FolderContentList::setWorkingDir(const QString& string)
+void FolderContentList::setWorkingDir(QString string)
 {
-	Settings::changeWorkingDir(string);
+	Settings::changeWorkingDir(std::move(string));
 	resetList();
 	emit listReset();
+	emit workingDirChanged(Settings::sessionSettings().workingDir);
+}
+
+QString FolderContentList::workingDir() const
+{
+	return Settings::sessionSettings().workingDir;
 }
 
 void FolderContentList::filterChanged(QStringList filter)

@@ -13,7 +13,10 @@ int main(int argc, char *argv[])
 {
     QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
 
-    QGuiApplication app(argc, argv);
+		QGuiApplication app(argc, argv);
+		app.setOrganizationName(QStringLiteral("batch-run-qt"));
+		app.setOrganizationDomain(QStringLiteral("batch-run-qt"));
+		app.setApplicationName(QStringLiteral("batch-run-qt"));
 		QFontDatabase::addApplicationFont(":/MdiFont.ttf");
 
     qmlRegisterType<FolderContentModel>("FolderContent", 1, 0, "FolderContentModel");
