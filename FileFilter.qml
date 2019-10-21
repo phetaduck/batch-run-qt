@@ -2,7 +2,6 @@ import QtQuick 2.13
 import QtQuick.Controls 2.13
 import QtQuick.Layouts 1.3
 import "Icon.js" as MdiFont
-import UIState 1.0
 
 RowLayout {
 

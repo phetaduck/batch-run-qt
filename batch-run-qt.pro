@@ -22,7 +22,9 @@ HEADERS += \
     JSON/json.hpp \
     Tasks/PredefinedTasks.h \
     Tasks/Task.h \
+    Tasks/taskmanager.h \
     Utils/helperutil.h \
+    appstate.h \
     fallout4hardcode.h \
     filefilterstate.h \
     foldercontentlist.h \
@@ -32,7 +34,9 @@ HEADERS += \
 SOURCES += \
         Tasks/PredefinedTasks.cpp \
         Tasks/Task.cpp \
+        Tasks/taskmanager.cpp \
         Utils/helperutil.cpp \
+        appstate.cpp \
         fallout4hardcode.cpp \
         filefilterstate.cpp \
         foldercontentlist.cpp \
@@ -56,3 +60,8 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 
 DISTFILES +=
+
+#update qml
+qml_scenes.depends = $$PWD/resources/scene1.qml $$PWD/resources/scene2.qml ...
+qml_scenes.commands =
+QMAKE_EXTRA_TARGETS += qml_scenes

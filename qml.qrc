@@ -9,5 +9,7 @@
         <file>FileFilter.qml</file>
         <file>FolderContentListItem.qml</file>
         <file>TaskUI.qml</file>
+        <file>BRUtils.js</file>
+        <file>FolderSelect.qml</file>
     </qresource>
 </RCC>
