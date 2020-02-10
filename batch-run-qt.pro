@@ -29,6 +29,7 @@ HEADERS += \
     filefilterstate.h \
     foldercontentlist.h \
     foldercontentmodel.h \
+    glTF2_Converter/gltf2_combine.h \
     settings.h
 
 SOURCES += \
@@ -41,6 +42,7 @@ SOURCES += \
         filefilterstate.cpp \
         foldercontentlist.cpp \
         foldercontentmodel.cpp \
+        glTF2_Converter/gltf2_combine.cpp \
         main.cpp \
         settings.cpp
 
